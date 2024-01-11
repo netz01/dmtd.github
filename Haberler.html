@@ -1,0 +1,498 @@
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Fraunces:ital,wght@0,500;0,600;0,700;1,600&display=swap');
+.nav-items {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #f5f5f5;
+      margin-right: 20px;
+    }
+
+    .nav-items a {
+      text-decoration: none;
+      color: #000;
+      padding: 35px 20px;
+    }
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-color: #f8f3eb;
+  color: #484847;
+  padding-bottom: 5rem;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.responsive-wrapper {
+  width: 95%;
+  max-width: 1900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+
+  svg {
+    max-height: 40px;
+    width: auto;
+  }
+}
+
+.header-middle {
+  display: none;
+  @media (min-width: 1200px) {
+      display: block;
+  }
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-nav {
+  display: none;
+  @media (min-width: 1200px) {
+      display: block;
+  }
+}
+
+.header-link {
+  color: #000;
+  text-decoration: none;
+  margin-left: .75rem;
+  margin-right: .75rem;
+  display: none;
+  font-weight: 500;
+  display: inline-block;
+  &--button {
+    background-color: #000;
+    color: #fff;
+    padding: .5rem 1.25rem;
+  }
+  
+  @media (min-width: 1200px) {
+  }
+}
+
+.header-menu-button {
+  margin-left: .75rem;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  font: inherit;
+  position: relative;
+  padding-right: 30px;
+  font-weight: 500;
+  
+  &:after, &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: currentcolor;
+    right: 0;
+    top: 8px;
+  }
+  
+  &:after {
+    top: 16px;
+    width: 12px;
+    right: 8px;
+  }
+}
+
+.page-title {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  display: flex;
+  justify-content: center;
+  h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #000;
+    text-align: center;
+    position: relative;
+    
+    
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      bottom: -3px;
+      height: 2px;
+      background-color: currentcolor;
+    }
+  }
+}
+
+.magazine-layout {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-row-gap: 2rem;
+}
+
+.magazine-column {
+  padding: 0 1.5rem;
+  grid-column: span 5;
+  
+  @media (min-width: 1200px) {
+    grid-column: span 1;
+    border-right: 1px solid #CCC;
+    &:last-child {
+      border-right: none;
+    }
+  }
+  
+  &:nth-child(2) {
+    @media (min-width: 1200px) {
+      grid-column: span 2;
+    }
+  }
+}
+
+.article {
+  & + .article {
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid #ccc;
+  }
+}
+
+.article-img {
+  & + * {
+    margin-top: 1rem;
+  }
+}
+
+.article-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.article-title {
+  font-family: "Fraunces", serif;
+  font-weight: 900;
+  line-height: 1.25;
+  color: #000;
+
+  &--large {
+    font-size: 2rem;
+    & + * {
+      margin-top: 1.5rem;
+    }
+  }
+
+  &--medium {
+    font-size: 1.5rem;
+    & + * {
+      margin-top: 0.75rem;
+    }
+  }
+
+  &--small {
+    font-size: 1.25rem;
+    & + * {
+      margin-top: 0.75rem;
+    }
+  }
+}
+
+.article-link {
+  color: inherit;
+}
+
+.mark {
+  background-color: #fabea1;
+  &--secondary {
+    background-color: #c2dddf;
+  }
+  
+  &--tertiary {
+    background-color: #F8E177;
+  }
+}
+
+.article-excerpt,
+.article-creditation {
+  font-size: 1.125rem;
+  line-height: 1.4;
+  p + p {
+    margin-top: 1.5rem;
+  }
+}
+
+.article-author {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.article-author-img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 12px;
+  background-color: #323232;
+  overflow: hidden;
+  background-blend-mode: multiply;
+  img {
+  }
+
+  & + .article-author-info {
+    margin-left: 0.5rem;
+  }
+}
+
+.article-author-info {
+  line-height: 1.375;
+  dl {
+    margin-top: 0.25em;
+  }
+
+  dt {
+    font-weight: 600;
+  }
+
+  dd {
+    font-size: 0.875em;
+  }
+}
+
+.article-category {
+  font-weight: 500;
+  margin-bottom: 1rem;
+  display: block;
+  svg {
+    max-width: 1.5rem;
+    margin-right: .5rem;
+    vertical-align: middle;
+  }
+  
+}
+
+.article-podcast-player {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  margin-top: 1.25rem;
+}
+
+.podcast-play-button {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 12px;
+  border: 0;
+  background-color: #000;
+  margin-right: .5rem;
+  svg {
+    max-width: 1rem;
+    max-height: 1rem;
+    fill: #FFF;
+  }
+}
+
+.podcast-progression {
+  flex: 1;
+  height: 8px;
+  border-radius: 99em;
+  background-color: #D9D4CD;
+  background-image: linear-gradient(to right, #F99970 30%, #D9D4CD 30%, #D9D4CD 100%)
+}
+
+.podcast-time {
+  font-weight: 500;
+  font-size: 1.125rem;
+  margin-left: .5rem;
+}
+
+:focus {
+  outline: 0;
+}</style>
+
+<nav class="nav-items">
+    <a href="index.html">Anasayfa</a>
+    <a href="Haberler.html">Haberler</a>
+    <a href="hakkimizda.html">Hakkımızda</a>
+    <a href="iletisim.html">iletişim</a>
+  </nav>
+<div class="page-title">
+    <h1>Latest Updates</h1>
+  </div>
+  <div class="magazine-layout">
+    <div class="magazine-column">
+      <article class="article">
+            <figure class="article-img">
+              <img src="21.jpg" />
+            </figure>
+        <h2 class="article-title article-title--large">
+          <a href="#" class="article-link">21 Aralık 2024</a>
+        </h2>
+        <div class="article-excerpt">
+          <p>2️⃣1️⃣ Aralık Türkçe Eğitim Bayramı Radoviş’te 
+            Geleneksel Olarak Kutlandı</p>
+          
+        </div>
+        <div class="article-author">
+          <div class="article-author-img">
+            <img src="dmtd2004.jpg.jpg" />
+          </div>
+          <div class="article-author-info">
+            <dl>
+              <dt>DMTD</dt>
+              
+            </dl>
+          </div>
+        </div>
+      </article>
+      <article class="article">
+      <figure class="article-img"
+          <img src="sunnet.jpg">
+      </figure>
+        <h2 class="article-title article-title--medium">
+          <a href="#" class="article-link">“SÜNNET” Şoleni</a>
+        </h2>
+        <div class="article-creditation">
+          <p>Doğu Makedonya Türkleri Derneği organizasyonunda her yıl olduğu gibi bu yılda geleneksel toplu (2023) “SÜNNET” programı yapılmaktadır.</p>
+        </div>
+      </article>
+    </div>
+    <div class="magazine-column">
+      <article class="article">
+        <figure class="article-img">
+          <img src="festival2023.jpg" />
+        </figure>
+        <h2 class="article-title article-title--medium">
+          <a href="#" class="article-link">30 Temmuz 2023</a>
+        </h2>
+        <div class="article-excerpt">
+          <p>Radoviş kasabası’nın Topoliça(Kavakli) köyün’de Doğu Makedonya Türkleri Derneği her yıl düzenlemiş olduğu “1️⃣5️⃣ Geneleksel Yörük Şenlikleri” büyük bir coşkuyla kutlandı.</p>
+        </div>
+        <div class="article-author">
+          <div class="article-author-img">
+            <img src="dmtd2004.jpg.jpg" />
+          </div>
+          <div class="article-author-info">
+            <dl>
+              <dt>DMTD</dt>
+              
+            </dl>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="magazine-column">
+      <article class="article">
+        <figure class="article-img">
+          <img src="29ekims.jpg" />
+        </figure>
+        <h2 class="article-title article-title--small">
+          <a href="#" class="article-link">29 Ekim 2023</a>
+        </h2>
+        <div class="article-creditation">
+          <p>29 Ekim 2023’’ tarihinde Radoviş Kültür evinde 
+            1️⃣0️⃣0️⃣.cü Cumhuriyet Bayramı coşkuyla kutlandı</p>
+        </div>
+      </article>
+      <article class="article">
+        <figure class="article-img">
+          <img src="enver baskan.jpg" />
+        </figure>
+        <h2 class="article-title article-title--small">
+          <a href="#" class="article-link">4 Kasım 2023</a>
+        </h2>
+        <div class="article-creditation">
+          <p>DMTD Başkanı ve  Türk Ocakları Makedonya temsilcisi sn.Enver Üseyinov,DMTD Y.K Üyesi sn.Selman Yusufov ile Antalya Büyükşehir Belediyesi'nin düzenlediği 2. Uluslararası Antalya Yörük Türkmen Festivali'ne  katılım sağladılar.</p>
+        </div>
+      </article>
+    </div>
+    <div class="magazine-column">
+      <article class="article">
+        <h2 class="article-title article-title--medium">
+          
+        </h2>
+        <div class="article-excerpt">
+          <figure class="article-img">
+            <img src="okul.jpg" />
+          </figure>
+          <p> Türk Ocakları Genel Merkezi destekleriyle,bu yıl Radoviş okulları başta olmakla beraber #Konçe,#Valandova ve #Doyran'da 6.sınıf ve #Radoviş Kosta Susinov Lise-1 de,Türkçe eğitim gören öğrencilerimize 2️⃣5️⃣0️⃣ addet Çanta ve çeşitli malzemelerden oluşan kırtasiye yardımları yapılmıştır.</p>
+        </div>
+        <div class="article-author">
+          <div class="article-author-img">
+            <img src="dmtd2004.jpg.jpg" />
+          </div>
+          <div class="article-author-info">
+            <dl>
+              <dt>DMTD</dt>
+              
+            </dl>
+          </div>
+        </div>
+      </article>
+      <article class="article">
+        <small class="article-category">
+          
+  <defs>
+   
+  </defs>
+  <g id="headphones" clip-path="url(#clip-headphones)">
+    <g id="Group_2" data-name="Group 2" transform="translate(-3680 -609)">
+      <path id="Subtraction_1" data-name="Subtraction 1" d="M5,12H5A5.274,5.274,0,0,1,0,6.5,5.274,5.274,0,0,1,5,1V12Z" transform="translate(3680 619)"/>
+      <rect id="Rectangle_18" data-name="Rectangle 18" width="2" height="11" transform="translate(3686 620)"/>
+      <path id="Subtraction_5" data-name="Subtraction 5" d="M1.243,12H.045C.015,11.67,0,11.334,0,11A11,11,0,0,1,18.778,3.222,10.925,10.925,0,0,1,22,11c0,.331-.015.667-.045,1h-1.2a14.108,14.108,0,0,0-2.685-6.241A8.982,8.982,0,0,0,11,2,8.982,8.982,0,0,0,3.929,5.759,14.109,14.109,0,0,0,1.243,12Z" transform="translate(3683 609)"/>
+      <path id="Subtraction_6" data-name="Subtraction 6" d="M5,0H5A5.274,5.274,0,0,0,0,5.5,5.274,5.274,0,0,0,5,11V0Z" transform="translate(3708 631) rotate(180)"/>
+      <rect id="Rectangle_23" data-name="Rectangle 23" width="2" height="11" transform="translate(3700 620)"/>
+      <path id="Path_8" data-name="Path 8" d="M.156-.031,2.125-1.687,2,2H0Z" transform="translate(3683 619)"/>
+      <path id="Path_9" data-name="Path 9" d="M1.969-.031,0-1.687.125,2h2Z" transform="translate(3702.875 619)"/>
+    </g>
+  </g>
+</svg>
+<div class="article-excerpt">
+  <figure class="article-img">
+    <img src="okul.jpg" />
+  </figure>
+  <p> Türk Ocakları Genel Merkezi destekleriyle,bu yıl Radoviş okulları başta olmakla beraber #Konçe,#Valandova ve #Doyran'da 6.sınıf ve #Radoviş Kosta Susinov Lise-1 de,Türkçe eğitim gören öğrencilerimize 2️⃣5️⃣0️⃣ addet Çanta ve çeşitli malzemelerden oluşan kırtasiye yardımları yapılmıştır.</p>
+</div>
+<div class="article-author">
+  <div class="article-author-img">
+    <img src="dmtd2004.jpg.jpg" />
+  </div>
+  <div class="article-author-info">
+    <dl>
+      <dt>DMTD</dt>
+      
+    </dl>
+  </div>
+</div>
+        </small>
+        
+            </dl>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</main>
